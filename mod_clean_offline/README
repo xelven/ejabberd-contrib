@@ -1,0 +1,31 @@
+mod_clean_offline
+ejabberd maintenance and operation.
+
+Author : Allen Chan <xelven@gmail.com>
+
+Motivation:
+when I working on ejabberd and try to deploy to scalable environment,
+when lot of user register but low usage there will be lot of message keeping in offline message.
+I realize should be have module to house keeping those data, and log to some where.
+
+
+
+
+How is works:
+add in your ejabberd.cfg
+{modules, [
+...
+{mod_clean_offline,[]},
+...
+]}.
+
+
+now can setting to system crontab,
+00 00 * * * root ejabberdctl clean_by_day  X
+
+X is should be a number,how many day ago data.
+
+
+
+
+
